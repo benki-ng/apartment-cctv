@@ -21,7 +21,7 @@ s3 = boto3.client("s3", region_name=regionName, endpoint_url=endpointUrl, aws_ac
 
 #Upload to s3 function
 def uploader(fileName):
-    print("TID: " + str(threading.get_ident()) + " " + fileName + " " + "Upload function called: " + fileName)
+    print(str(threading.get_ident()) + " " + fileName + " " + "Upload function called: " + fileName)
     with open(fileName, 'rb') as data:
         try:
             s3.upload_fileobj(data, bucketName, fileName)
